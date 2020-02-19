@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ControllerPrincipal extends AbstractFrameController{
 
+    @Autowired
     private ViewPrincipal viewPrincipal;
 
     @Autowired
