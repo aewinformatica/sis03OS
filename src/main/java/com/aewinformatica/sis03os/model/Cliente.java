@@ -40,12 +40,15 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+        @Enumerated(EnumType.STRING)
+        @Column(nullable = false, length = 20)
 	private StatusCliente status = StatusCliente.CADASTRO;
 	
-	@Column(name = "nome", length = 100)
+
+	@Column(name = "nome", length = 100, nullable = true)
 	private String nome;
 
-	@Column(name = "nome_fantasia", length = 100)
+	@Column(name = "nome_fantasia", length = 100, nullable = true)
 	private String nomeFantasia;
 
 
@@ -136,8 +139,6 @@ public class Cliente implements Serializable {
 	}
 	
 	@NotNull
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 20)
 	public StatusCliente getStatus() {
 		return status;
 	}
@@ -148,7 +149,6 @@ public class Cliente implements Serializable {
 
 
 	@Length(max = 100, message = "é muito longo; máximo 100 caracteres!")
-	@Column(nullable = true, length = 100)
 	public String getNome() {
 		return nome;
 	}
@@ -198,7 +198,6 @@ public class Cliente implements Serializable {
 	}
 
 	@Length(max = 100, message = "é muito longo; máximo 100 caracteres!")
-	@Column(nullable = true, length = 100)
 	public String getNomeFantasia() {
 		return nomeFantasia;
 	}
